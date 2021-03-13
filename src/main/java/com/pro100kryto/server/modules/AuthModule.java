@@ -249,7 +249,6 @@ public class AuthModule extends Module
 
         @Override
         public Connection authorize(long userId, String nickname, int roles, IEndPoint endPoint) {
-            Connection connNew;
             int connId;
             final byte[] keyCrypt = new byte[32];
             random.nextBytes(keyCrypt);
@@ -264,16 +263,20 @@ public class AuthModule extends Module
                 connId = connectionRegister.getNextConnId();
             }
 
-            {
-                connectionRegister.set(connNew = new Connection(userId, connId, nickname, keyCrypt,
-                        connPass, new ConnectionRoles(roles),
-                        endPoint));
-            }
+            final Connection connection = new Connection(userId, connId, nickname, keyCrypt,
+                    connPass, new ConnectionRoles(roles),
+                    endPoint);
+            connectionRegister.set(connection);
 
-            authorizables.forEachValue((Procedure<IAuthorizable>)
-                    each -> each.authorize(connNew));
+            authorizables.forEachValue((Procedure<IAuthorizable>) each -> {
+                try{
+                    each.authorize(connection);
+                } catch (Throwable throwable){
+                    logger.writeException(throwable, "failed authorize some IAuthorizable");
+                }
+            });
 
-            return connNew;
+            return connection;
         }
 
         @Override
