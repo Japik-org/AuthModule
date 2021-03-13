@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.pro100kryto.server.modules</groupId>
+    <artifactId>AuthModule</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.pro100kryto.server</groupId>
+            <artifactId>Server</artifactId>
+            <scope>compile</scope>
+            <version>[0.1.2, 0.2)</version>
+        </dependency>
+        <dependency>
+            <groupId>com.pro100kryto.server.modules</groupId>
+            <artifactId>AuthModule-connection</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.pro100kryto.server.utils</groupId>
+            <artifactId>ServerUtils</artifactId>
+            <version>[1.0, 2.0)</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.pro100kryto.server.utils</groupId>
+            <artifactId>Datagram</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.pro100kryto.server.modules</groupId>
+            <artifactId>ReceiverBufferedModule-connection</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.pro100kryto.server.modules</groupId>
+            <artifactId>PacketPoolModule-connection</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.pro100kryto.server.modules</groupId>
+            <artifactId>SenderModule-connection</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.pro100kryto.server.modules</groupId>
+            <artifactId>DatabaseMongoModule-connection</artifactId>
+            <version>0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.pro100kryto.server.services</groupId>
+            <artifactId>UsersDatabaseService-connection</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.collections</groupId>
+            <artifactId>eclipse-collections</artifactId>
+            <version>11.0.0.M1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>
