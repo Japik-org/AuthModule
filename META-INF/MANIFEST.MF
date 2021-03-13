@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Class-Path: modules/auth-module-connection.jar
+  modules/receiverbuffered-module-connection.jar
+  modules/packetpool-module-connection.jar
+  modules/sender-module-connection.jar
+  modules/databasemongo-module-connection.jar
+  services/usersdatabase-service-connection.jar
+  utils/serverutils.jar
+  utils/datagram.jar
+  lib/eclipse-collections-api-11.0.0.M1.jar
+  lib/eclipse-collections-11.0.0.M1.jar
+  lib/annotations-13.0.jar
