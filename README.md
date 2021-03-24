@@ -20,7 +20,7 @@ UsersDatabase, Authorizable (optional)
 - _**authorizable-receiver-port**_ - indicates to user the port
 - _**multiconnection-disabled**_ - prohibits having multiple connections for same user
 - _**max-connections**_ - max count of authorized users at same time
-- _**max-processes**_ - max count of authorizations at same time (parallel threads)
+- _**max-processes**_ - max count of authorization processes at same time (parallel threads)
 
 `ModuleConnection (Auth):`
 - authorize
