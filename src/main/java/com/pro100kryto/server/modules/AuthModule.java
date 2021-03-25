@@ -51,7 +51,7 @@ public class AuthModule extends Module
 
     private boolean multiConnDisabled = true;
 
-    private Random random;
+    private static final Random random = new Random();
 
 
     public AuthModule(IServiceControl service, String name) {
