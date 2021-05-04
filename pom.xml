@@ -52,7 +52,7 @@
         <dependency>
             <groupId>com.pro100kryto.server.utils</groupId>
             <artifactId>ServerUtils</artifactId>
-            <version>[1.0.0-SNAPSHOT, 2.0.0)</version>
+            <version>[2.0.0, 3.0.0)</version>
         </dependency>
         <dependency>
             <groupId>com.pro100kryto.server.utils</groupId>

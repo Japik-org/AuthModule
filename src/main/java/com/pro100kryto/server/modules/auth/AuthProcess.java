@@ -34,7 +34,7 @@ public class AuthProcess extends ProcessPacketInThreadPool<AuthProcess> {
     @Override
     protected IPacketProcess getPacketProcess() {
         try {
-            DataReader reader = packet.getDataReader();
+            final DataReader reader = packet.getDataReader();
             reader.setPosition(PacketHeaderInfo.Client.POS_PACKET_ID);
             int packetId = reader.readShort();
             IPacketProcess packetProcess = packetIdPacketProcessMap.get(packetId);

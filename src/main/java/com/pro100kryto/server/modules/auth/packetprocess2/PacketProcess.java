@@ -8,6 +8,8 @@ import com.pro100kryto.server.utils.datagram.packets.EndPoint;
 import com.pro100kryto.server.utils.datagram.packets.IPacket;
 import com.pro100kryto.server.utils.datagram.packets.IPacketInProcess;
 
+import java.util.Objects;
+
 public abstract class PacketProcess implements IPacketProcess {
     protected final IPacketProcessCallback callback;
     protected final ILogger logger;
@@ -24,6 +26,7 @@ public abstract class PacketProcess implements IPacketProcess {
         } catch (Throwable throwable) {
             try {
                 IPacketInProcess newPacket = callback.getPacketPool().getNextPacket();
+                Objects.requireNonNull(newPacket);
                 try {
                     PacketCreator.msgError(newPacket.getDataCreator(), MsgErrorCode.WrongPacket);
                     newPacket.setEndPoint(new EndPoint(packet.getEndPoint()));
@@ -32,6 +35,7 @@ public abstract class PacketProcess implements IPacketProcess {
                 } catch (Throwable ignored){
                 }
                 newPacket.recycle();
+                logger.writeException(throwable);
             } catch (NullPointerException ignored){
             }
         }

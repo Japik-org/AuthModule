@@ -76,7 +76,7 @@ public class AuthPacketProcess extends PacketProcess{
 
             if (!usersDB.iterator().hasNext()){
                 logger.writeInfo("Wrong username");
-                return USER_DB_NOT_FOUND;
+                return USER_NOT_FOUND;
             }
 
             while (usersDB.iterator().hasNext()){
@@ -90,7 +90,7 @@ public class AuthPacketProcess extends PacketProcess{
             }
 
             logger.writeInfo("Wrong password");
-            return USER_DB_NOT_FOUND;
+            return USER_WRONG_PASS;
         } catch (Exception ex){
             logger.writeError("Failed check user: "+ex.getMessage());
         }
@@ -113,6 +113,7 @@ public class AuthPacketProcess extends PacketProcess{
         }
     }
 
-    private static final UserDB USER_DB_NOT_FOUND = new UserDB(ConnectionInfo.WRONG_USER, 0, null);
+    private static final UserDB USER_NOT_FOUND = new UserDB(ConnectionInfo.WRONG_USER, 0, null);
     private static final UserDB USER_DB_ERROR = new UserDB(ConnectionInfo.DB_ERROR, 0, null);
+    private static final UserDB USER_WRONG_PASS = new UserDB(ConnectionInfo.WRONG_PASS, 0, null);
 }
